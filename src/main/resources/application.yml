@@ -8,19 +8,19 @@ server:
     enabled: true
 
 spring:
-  h2:
-    console:
-      settings:
-        web-allow-others: true
-      path: /h2-console
-      enabled: false
-  datasource:
+#  h2:
+#    console:
+#      settings:
+#        web-allow-others: true
+#      path: /h2-console
+#      enabled: false
+#  datasource:
     # 初始化数据导入
-    data: classpath*:db/data.sql
-    sql-script-encoding: utf-8
-
-    initialization-mode: always
-    continue-on-error: true
+#    data: classpath*:db/data.sql
+#    sql-script-encoding: utf-8
+#
+#    initialization-mode: always
+#    continue-on-error: false
 
     # h2 内存数据库 配置
 #    driver-class-name: org.h2.Driver
@@ -28,6 +28,8 @@ spring:
 #    username: zfile
 #    password: 123456
 
+
+  datasource:
     # MySQL 配置
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://94v949qq.2397.dnstoo.com:5506/manpack?useUnicode=true&characterEncoding=UTF8
