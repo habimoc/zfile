@@ -1,4 +1,4 @@
-INSERT INTO SYSTEM_CONFIG (`ID`, `k`, `REMARK`) VALUES (1, 'siteName', '站点名称');
+INSERT INTO system_config (`ID`, `k`, `REMARK`) VALUES (1, 'siteName', '站点名称');
 INSERT INTO SYSTEM_CONFIG (`ID`, `k`, `REMARK`) VALUES (5, 'storageStrategy', '当前启用存储引擎');
 INSERT INTO SYSTEM_CONFIG (`ID`, `k`, `REMARK`) VALUES (6, 'username', '管理员账号');
 INSERT INTO SYSTEM_CONFIG (`ID`, `k`, `REMARK`) VALUES (7, 'password', '管理员密码');

@@ -35,6 +35,11 @@ spring:
     url: jdbc:mysql://94v949qq.2397.dnstoo.com:5506/manpack?useUnicode=true&characterEncoding=UTF8
     username: manpack_f
     password: Man123
+
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://172.17.0.3:3306/zfile_db?useUnicode=true&characterEncoding=UTF8
+#    username: root
+#    password: yinn357
   jackson:
     date-format: yyyy-MM-dd HH:mm
     time-zone: GMT+8

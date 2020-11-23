@@ -1,11 +1,17 @@
 package im.zhaojun.zfile.controller.home;
 
+import im.zhaojun.zfile.context.DriveContext;
+import im.zhaojun.zfile.model.dto.AudioInfoDTO;
+import im.zhaojun.zfile.model.dto.FileItemDTO;
 import im.zhaojun.zfile.model.support.ResultBean;
+import im.zhaojun.zfile.service.base.AbstractBaseFileService;
 import im.zhaojun.zfile.util.AudioUtil;
 import im.zhaojun.zfile.util.HttpUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * 文件解析 Controller
@@ -14,6 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/common")
 public class FileParseController {
+
+
+    @Resource
+    private DriveContext driveContext;
 
     /**
      * 获取文件内容, 仅限用于 txt, md, ini 等普通文本文件.
@@ -34,12 +44,20 @@ public class FileParseController {
      *
      * @param   url
      *          文件 URL
-     *
+     *api/list
      * @return 音频信息, 标题封面等信息
      */
     @GetMapping("/audio-info")
-    public ResultBean getAudioInfo(String url) throws Exception {
-        return ResultBean.success(AudioUtil.getAudioInfo(url));
+    public ResultBean getAudioInfo(String url,String filePath,Integer driveId) throws Exception {
+        AudioInfoDTO audioInfo = null;
+        try {
+            audioInfo = AudioUtil.getAudioInfo(url);
+        } catch (Exception e) {
+            AbstractBaseFileService fileService = driveContext.get(driveId);
+            FileItemDTO fileItem = fileService.getFileItem(filePath);
+            audioInfo = AudioUtil.getAudioInfo(fileItem.getUrl());
+        }
+        return ResultBean.success(audioInfo);
     }
 
 }
