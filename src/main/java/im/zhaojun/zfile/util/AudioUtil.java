@@ -38,7 +38,7 @@ public class AudioUtil {
         // 如果音乐文件大小超出 5M, 则不解析此音乐
         if (im.zhaojun.zfile.util.HttpUtil.getRemoteFileSize(url)
                 > (1024 * 1024 * ZFileConstant.AUDIO_MAX_FILE_SIZE_MB)) {
-            return AudioInfoDTO.buildDefaultAudioInfoDTO(url);
+            return AudioInfoDTO.buildDefaultAudioInfoDTO();
         }
 
         String fullFilePath = StringUtils.removeDuplicateSeparator(ZFileConstant.TMP_FILE_PATH + ZFileConstant.PATH_SEPARATOR + UUID.fastUUID());
@@ -47,7 +47,7 @@ public class AudioUtil {
         FileUtil.mkParentDirs(file);
         HttpUtil.downloadFile(url, file);
         AudioInfoDTO audioInfoDTO = parseAudioInfo(file);
-        audioInfoDTO.setSrc(url);
+//        audioInfoDTO.setSrc(url); // 能正常解析文件 不设置url
         file.deleteOnExit();
         return audioInfoDTO;
     }

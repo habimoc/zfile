@@ -55,7 +55,7 @@ public class FileParseController {
         } catch (Exception e) {
             AbstractBaseFileService fileService = driveContext.get(driveId);
             FileItemDTO fileItem = fileService.getFileItem(filePath);
-            audioInfo = AudioUtil.getAudioInfo(fileItem.getUrl());
+            audioInfo = AudioInfoDTO.buildDefaultAudioInfoDTO(fileItem.getUrl());
         }
         return ResultBean.success(audioInfo);
     }
