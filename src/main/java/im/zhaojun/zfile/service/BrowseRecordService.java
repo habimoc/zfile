@@ -3,6 +3,7 @@ package im.zhaojun.zfile.service;
 import im.zhaojun.zfile.model.entity.BrowseRecord;
 import im.zhaojun.zfile.repository.BrowseRecordRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -37,21 +38,26 @@ public class BrowseRecordService {
             record.setStatus(0);
         }
         browseRecordRepository.saveAll(browseRecordList);
-        BrowseRecord save = browseRecordRepository.save(browseRecord);
+        BrowseRecord record = browseRecordRepository.findByUserNameAndFilePathAndFileName(browseRecord.getUserName(), browseRecord.getFilePath(), browseRecord.getFileName());
+        if (record !=null){
+            record.setStatus(1);
+            browseRecordRepository.save(record);
+        }else {
+            BrowseRecord save = browseRecordRepository.save(browseRecord);
+        }
     }
 
     /**
      * 查询用户 记录
-     * @param userName
-     * @param filePath
+     * @param browseRecord
      * @return
      */
-    public List<BrowseRecord> findBrowseRecordByUser(String userName,String filePath,Integer status){
+    public List<BrowseRecord> findBrowseRecordByUser(BrowseRecord browseRecord){
         List<BrowseRecord> browseRecordList = null;
-        if (status ==null){
-            browseRecordList= browseRecordRepository.findByUserNameAndFilePathLike(userName, "%" + filePath + "%", Sort.by("createTime").descending());
+        if (browseRecord.getStatus() ==null){
+            browseRecordList= browseRecordRepository.findByUserNameAndFilePathLike(browseRecord.getUserName(), "%" + browseRecord.getFilePath() + "%", Sort.by("createTime").descending());
         }else {
-            browseRecordList= browseRecordRepository.findByUserNameAndFilePathLikeAndStatus(userName, "%" + filePath + "%",status, Sort.by("createTime").descending());
+            browseRecordList= browseRecordRepository.findByUserNameAndFilePathLikeAndStatus(browseRecord.getUserName(), "%" + browseRecord.getFilePath() + "%",browseRecord.getStatus(), Sort.by("createTime").descending());
         }
         return browseRecordList;
     }

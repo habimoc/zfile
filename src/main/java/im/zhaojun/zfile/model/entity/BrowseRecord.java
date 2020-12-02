@@ -29,6 +29,8 @@ public class BrowseRecord {
 
     private String fileName;
 
+    private Integer driveId;
+
     @Builder.Default
     private Integer status = 1;
 

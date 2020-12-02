@@ -36,8 +36,8 @@ public class BrowseRecordController {
 
 
     @GetMapping("/findUserRecord")
-    public ResultBean findUserRecord(String userName, String filePath,Integer status){
-        List<BrowseRecord> browseRecordList = browseRecordService.findBrowseRecordByUser(userName, filePath,status);
+    public ResultBean findUserRecord(BrowseRecord browseRecord){
+        List<BrowseRecord> browseRecordList = browseRecordService.findBrowseRecordByUser(browseRecord);
         return ResultBean.success(browseRecordList);
     }
 }
