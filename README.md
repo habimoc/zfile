@@ -116,8 +116,6 @@ linux 为 `/home/用户名/`, root 用户为 `/root/`
 
 如果本项目对你有帮助，请作者喝杯咖啡吧。
 
-<div style="width: 1000px;">
-<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fzfb.jpg" alt="zfb" style="width: 30%;" />
-<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fqq.png" alt="qq" style="width: 30%;" />   
-<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fwx.jpg" alt="wx" style="width: 30%; transform: rotate(180deg);" />
-</div>
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fzfb.jpg" alt="zfb" width="200"/>
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fqq.png" alt="qq" width="200" style="width: 30%;" />   
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fwx.jpg" alt="wx" width="200" style="width: 30%; transform: rotate(180deg);" />
