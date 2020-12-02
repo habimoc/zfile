@@ -9,14 +9,20 @@
 
 前端基于 [h5ai](https://larsjung.de/h5ai/) 的原有功能使用 Vue 重新开发了一遍. 后端采用 SpringBoot, 数据库采用内嵌数据库.
 
-预览地址: [https://zfile.jun6.net](https://zfile.jun6.net)
+**在原有项目上添加浏览记录,音频播放OneDrive一小时失效后再次自动获取.**
 
-文档地址: [http://docs.zhaojun.im/zfile](http://docs.zhaojun.im/zfile)
+预览地址: [http://file.yinn520.com/](http://file.yinn520.com/)
+
+原作者项目: [https://github.com/zhaojun1998/zfile](https://github.com/zhaojun1998/zfile)
+
+原作者预览地址: [https://zfile.jun6.net](https://zfile.jun6.net)
+
+原作者文档地址: [http://docs.zhaojun.im/zfile](http://docs.zhaojun.im/zfile)
 
 ## 系统特色
 
 * 内存缓存 (免安装)
-* 内存数据库 (免安装)
+* 内存数据库 (免安装) // MySQL数据库
 * 个性化配置
 * 自定义目录的 readme 说明文件
 * 自定义 JS, CSS
@@ -30,59 +36,31 @@
 
 ## 快速开始
 
-安装依赖环境:
-
-```bash
-# CentOS系统
-yum install -y java-1.8.0-openjdk unzip
-```
-
-```bash
-# Debian 9 / Ubuntu 14+
-apt update
-apt install -y openjdk-8-jre-headless unzip
-```
-
-```bash
-# Debian 10 (Buster) 系统
-apt update && apt install -y apt-transport-https software-properties-common ca-certificates dirmngr gnupg
-wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
-add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update && apt install -y adoptopenjdk-8-hotspot-jre
-```
-
-
-> 如为更新程序, 则请先执行 `~/zfile/bin/stop.sh && rm -rf ~/zfile` 清理旧程序. 首次安装请忽略此选项.
-
 
 下载项目:
 
 ```bash
-cd ~
-wget https://c.jun6.net/ZFILE/zfile-release.war
-mkdir zfile && unzip zfile-release.war -d zfile && rm -rf zfile-release.war
-chmod +x zfile/bin/*.sh
+git clone https://github.com/zhaojun1998/zfile.git
 ```
-
-> 下载指定版本可以将 `zfile-release.war` 改为 `zfile-x.x.war`，如 `zfile-2.2.war`。
 
 程序的目录结构为:
 ```
 ├── zfile
-    ├── META-INF
-    ├── WEB-INF
-    └── bin
-        ├── start.sh    # 启动脚本
-        └── stop.sh     # 停止脚本
-        ├── restart.sh  # 重启脚本
+    ├── src  // api代码
+    ├── zfile-vue  // 前端项目
+```
+
+打包项目:
+
+```bash
+ cd ~/zfile
+ mvn clean package
 ```
 
 启动项目:
-
-```bash
- ~/zfile/bin/start.sh
 ```
-
+ java -Dfile.encoding=utf-8 -jar -Dserver.port=8088 zfile-2.8.1.jar
+```
 篇幅有限, 更详细的安装教程及介绍请参考: [ZFile 文档](http://docs.zhaojun.im/zfile)
 
 访问地址:
@@ -138,5 +116,8 @@ linux 为 `/home/用户名/`, root 用户为 `/root/`
 
 如果本项目对你有帮助，请作者喝杯咖啡吧。
 
-<img src="http://cdn.jun6.net/alipay.png" width="200" height="312">
-<img src="http://cdn.jun6.net/wechat.png" width="222" height="300">
+<div style="width: 1000px;">
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fzfb.jpg" alt="zfb" style="width: 30%;" />
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fqq.png" alt="qq" style="width: 30%;" />   
+<img src="https://yinn.coding.net/p/pic/d/pic/git/raw/master/201118/fwx.jpg" alt="wx" style="width: 30%; transform: rotate(180deg);" />
+</div>
