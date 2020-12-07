@@ -36,7 +36,7 @@ import java.util.List;
 public abstract class AbstractSharePointServiceBase extends AbstractBaseFileService {
 
     // iyinn.sharepoint.com,b9079a13-2897-4d55-af69-207445cb8743,1b774b83-f94a-44ca-8dde-73b38f90e013
-    protected static final String DRIVER_INFO_URL = "https://{graphEndPoint}/v1.0/sites/{sharePointSiteId}/drives";
+    protected static final String DRIVER_INFO_URL = "https://{graphEndPoint}/v1.0/sites/me/drives";
 
     protected static final String DRIVER_ROOT_URL = "https://{graphEndPoint}/v1.0/sites/{sharePointSiteId}/drive/root/children";
 
