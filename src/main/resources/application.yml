@@ -15,14 +15,14 @@ spring:
 #      path: /h2-console
 #      enabled: false
 #  datasource:
-    # 初始化数据导入
+#    # 初始化数据导入
 #    data: classpath*:db/data.sql
 #    sql-script-encoding: utf-8
 #
 #    initialization-mode: always
 #    continue-on-error: false
-
-    # h2 内存数据库 配置
+#
+#    # h2 内存数据库 配置
 #    driver-class-name: org.h2.Driver
 #    url: jdbc:h2:${zfile.db.path}
 #    username: zfile

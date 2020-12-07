@@ -21,6 +21,7 @@
 
 ## 系统特色
 
+* **支持SharePoint 国际版/世纪互联**
 * 内存缓存 (免安装)
 * 内存数据库 (免安装) // MySQL数据库
 * 个性化配置
@@ -32,7 +33,7 @@
 * 缓存动态开启, ~~缓存自动刷新 (v2.2 及以前版本支持)~~
 * ~~全局搜索 (v2.2 及以前版本支持)~~
 * 同时挂载多个存储策略
-* 支持 阿里云 OSS, FTP, 华为云 OBS, 本地存储, MINIO, OneDrive 国际/家庭/个人版, OneDrive 世纪互联版, 七牛云 KODO, 腾讯云 COS, 又拍云 USS.
+* 支持 阿里云 OSS, FTP, 华为云 OBS, 本地存储, MINIO, SharePoint, OneDrive 国际/家庭/个人版, OneDrive 世纪互联版, 七牛云 KODO, 腾讯云 COS, 又拍云 USS.
 
 ## 快速开始
 

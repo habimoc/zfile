@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/zfile-2.8.1.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/zfile-3.0.2.jar
