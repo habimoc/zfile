@@ -96,6 +96,16 @@
                             </el-tooltip>
                         </div>
 
+                        <div v-if="item.key === 'siteId'">
+                            <el-tooltip placement="bottom">
+                                <div slot="content">
+                                    直接拷贝"site-id"即可,无需"sites/"和前面域名 <br>
+                                    例:xxxx.sharepoint.com,b9079a13-xxxx-4d55-xxxx-20744xxxx743,1b774b83-xxxx-44ca-8dde-73bxxxx0e013
+                                </div>
+                                <i class="el-icon-question zfile-info-tooltip"></i>
+                            </el-tooltip>
+                        </div>
+
                         <div v-if="item.key === 'filePath'">
                             <el-tooltip placement="bottom">
                                 <div slot="content">
@@ -128,6 +138,23 @@
                         <el-link target="_blank" icon="el-icon-edit"
                                  href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=4a72d927-1907-488d-9eb2-1b465c53c1c5&response_type=code&redirect_uri=https://zfile.jun6.net/onedrive/china-callback&scope=offline_access%20User.Read%20Files.ReadWrite.All">前往获取授权</el-link>
                     </el-form-item>
+
+                    <el-form-item v-if="driveItem.type === 'sharepoint'">
+                        <el-link target="_blank" icon="el-icon-edit"
+                                 href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=09939809-c617-43c8-a220-a93c1513c5d4&response_type=code&redirect_uri=https://zfile.jun6.net/onedrive/callback&scope=offline_access%20User.Read%20Files.ReadWrite.All">前往获取授权</el-link>
+                        <br>
+                        <el-link target="_blank" icon="el-icon-edit-outline"
+                                 href="https://od.xkx.me/sp.php">获取siteId</el-link>
+                    </el-form-item>
+
+                    <el-form-item v-if="driveItem.type === 'sharepoint-china'">
+                        <el-link target="_blank" icon="el-icon-edit"
+                                 href="https://login.chinacloudapi.cn/common/oauth2/v2.0/authorize?client_id=4a72d927-1907-488d-9eb2-1b465c53c1c5&response_type=code&redirect_uri=https://zfile.jun6.net/onedrive/china-callback&scope=offline_access%20User.Read%20Files.ReadWrite.All">前往获取授权</el-link>
+                        <br>
+                        <el-link target="_blank" icon="el-icon-edit-outline"
+                                 href="https://od.xkx.me/sp.php">获取siteId</el-link>
+                    </el-form-item>
+
 
                     <el-form-item v-if="driveItem.type === 'ftp'">
                         <div class="zfile-word-aux zfile-margin-left-unset">
@@ -179,6 +206,7 @@ export default {
                 username: null,
                 password: null,
                 basePath: "",
+                siteId: "",
                 domain: ""
             },
         },
@@ -274,6 +302,7 @@ export default {
                 'storageStrategyConfig.port': [{required: true, message: "端口不能为空"}],
                 'storageStrategyConfig.accessToken': [{required: true, message: "访问令牌不能为空"}],
                 'storageStrategyConfig.refreshToken': [{required: true, message: "刷新令牌不能为空"}],
+                'storageStrategyConfig.siteId': [{required: true, message: "SharePoint的siteId不能为空"}],
                 'storageStrategyConfig.secretId': [{required: true, message: "SecretId 不能为空"}]
             }
         }
